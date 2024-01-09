@@ -13,6 +13,6 @@ const schema=new Schema<UserType>({
 })
 
 
-const modelName:string = 'Users'
+const modelName:string = 'Users';
 
 export default (connection && connection.models[modelName]) ?? model<UserType>(modelName,schema,'users');
