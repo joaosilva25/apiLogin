@@ -1,6 +1,7 @@
 import express,{Request,Response} from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
+import bodyParser from 'body-parser';
 import ApiRoutes from './routes/apiRoutes';
 import { mongoConnect } from './database/mongo';
 import cors from 'cors'
@@ -14,6 +15,8 @@ mongoConnect();
 app.use(cors())
 app.use(express.static(path.join(__dirname,"./public")));
 app.use(express.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
 
 app.use(ApiRoutes);
 
