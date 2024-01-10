@@ -20,7 +20,7 @@ export const registerUser = async(req: Request, res: Response) => {
                         email,
                         password:hashPassword
                     })
-                    res.status(201).json({user:newUser});
+                    res.status(201).json({mensage:"Ok"});
                 }
                 else {
                     res.status(422).json({mensage:"Endereço de Email Inválido"})
