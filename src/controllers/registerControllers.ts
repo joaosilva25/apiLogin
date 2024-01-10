@@ -1,5 +1,5 @@
 import {Request,Response} from 'express';
-import bcrypt from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 import Users from '../models/Users';
 
 export const registerUser = async(req: Request, res: Response) => {
@@ -9,7 +9,7 @@ export const registerUser = async(req: Request, res: Response) => {
     try {   
         if(userName && email && password) {
             const searchUser=await Users.findOne({email,userName});
-            const hashPassword=bcrypt.hashSync(password,10);
+            const hashPassword=bcryptjs.hashSync(password,10);
 
             if(!searchUser) {
                 const newUser=await Users.create({
