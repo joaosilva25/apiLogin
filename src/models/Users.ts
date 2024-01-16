@@ -4,12 +4,17 @@ type UserType = {
     userName:string,
     email:string,
     password:string
+    points:number
 }
 
 const schema=new Schema<UserType>({
     userName:String,
     email:String,
-    password:String
+    password:String,
+    points: {
+        type:Number,
+        default:0
+    }
 })
 
 
