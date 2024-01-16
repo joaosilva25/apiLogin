@@ -1,7 +1,7 @@
 import { Request,Response } from "express";
 import Users from "../models/Users";
 import bcrypt from 'bcryptjs'
-import validator from "validator";
+
 
 
 
@@ -17,7 +17,7 @@ export const loginUser=async (req:Request,res:Response)=> {
                     const matchPass=await bcrypt.compare(password,userExist.password);
                     
                     if(matchPass) {
-                        res.status(200).json({mensage:'Usuário Logado'});
+                        res.status(200).json({user:userExist});
                     }
                     else {
                         res.status(401).json({mensage:'Senha incorreta'});
