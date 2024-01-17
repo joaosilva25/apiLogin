@@ -35,3 +35,12 @@ export const loginUser=async (req:Request,res:Response)=> {
         res.status(500).json({error:'Problema inesperado com o processo de login'});
     }
 }
+
+
+export const usersRank=async(req:Request, res:Response)=> {
+    const users= await Users.find({
+    }).sort({points:-1})
+
+    res.json({mensage:users})
+
+}

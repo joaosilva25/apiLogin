@@ -6,7 +6,7 @@ import * as rankControllers from "../controllers/rankControllers";
 
 const routes= Router();
 
-
+routes.get('/usersRank',rankControllers.usersRank)
 routes.post('/register',registerControllers.registerUser);
 routes.post('/login',loginControllers.loginUser);
 routes.post('/saveRank',rankControllers.saveRank)

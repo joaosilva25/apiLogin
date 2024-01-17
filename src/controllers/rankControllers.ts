@@ -21,3 +21,22 @@ export const saveRank=async(req:Request,res:Response)=> {
 
 
 }
+
+
+export const usersRank=async(req:Request,res:Response)=> {
+    try {
+        const users= await Users.find({
+        }).sort({points:-1})
+
+        if(users) {
+            res.status(201).json({mensage:users})
+        }
+        else {
+            res.status(404).json({mensage:"No users found"})
+        }
+    }
+    catch(error) {
+        res.status(500).json({mensage:'Unexpected error'})
+    }
+
+}
